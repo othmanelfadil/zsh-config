@@ -81,6 +81,7 @@ plugins=(git gitfast gh fzf z colored-man-pages command-not-found sudo extract d
 
 source $ZSH/oh-my-zsh.sh
 
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -110,7 +111,21 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-. "$HOME/.local/bin/env"
+[ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
+
+export EDITOR="nvim"
+export VISUAL="nvim"
+
+setopt AUTO_CD 
+setopt AUTO_PUSHD
+setopt PUSHD_IGNORE_DUPS
+
+setopt EXTENDED_GLOB
+setopt GLOB_DOTS 
+setopt NULL_GLOB 
+
+zstyle ':completion:*' menu select 
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 # bun completions
 [ -s "/$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
@@ -133,5 +148,9 @@ alias c='clear'
 alias zshrc='$EDITOR ~/.zshrc'
 alias reload='source ~/.zshrc'
 alias c.='codium .'
+
+backup() {
+  cp "$1" "$1.bak"
+}
 
 
