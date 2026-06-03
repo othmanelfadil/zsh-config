@@ -113,12 +113,12 @@ source $ZSH/oh-my-zsh.sh
 . "$HOME/.local/bin/env"
 
 # bun completions
-[ -s "/home/ozzy/.bun/_bun" ] && source "/home/ozzy/.bun/_bun"
+[ -s "/$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-export PATH="$(go env GOPATH)/bin:$PATH"
+export GOPATH="${GOPATH:-$HOME/go}"
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -132,5 +132,6 @@ alias grep='grep --color=auto'
 alias c='clear'
 alias zshrc='$EDITOR ~/.zshrc'
 alias reload='source ~/.zshrc'
+alias c.='codium .'
 
 
