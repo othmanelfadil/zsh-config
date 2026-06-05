@@ -146,15 +146,25 @@ alias ...='cd ../..'
 alias grep='grep --color=auto'
 alias c='clear'
 alias zshrc='$EDITOR ~/.zshrc'
+
+
 alias reload='source ~/.zshrc'
-alias c.='codium .'
 alias update='sudo dnf upgrade --refresh'
 alias install='sudo dnf install'
+alias search='dnf search'
+alias remove='sudo dnf remove'
 alias s='sudo' # questionable alias 
+
+
+alias c.='codium .'
+
+
 alias tss='tailscale status'
 alias tip='tailscale ip'
 alias tup='sudo tailscale up'
 alias tdown='sudo tailscale down'
+alias ports='ss -tulanp'
+
 
 backup() {
   cp "$1" "$1.bak"
