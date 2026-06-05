@@ -138,7 +138,8 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-alias ll='ls -lah'
+alias ls='eza --icons=auto --group-directories-first'
+alias ll='eza -lah --icons=auto --group-directories-first'
 alias la='ls -A'
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -147,9 +148,28 @@ alias c='clear'
 alias zshrc='$EDITOR ~/.zshrc'
 alias reload='source ~/.zshrc'
 alias c.='codium .'
+alias update='sudo dnf upgrade --refresh'
+alias install='sudo dnf install'
+alias s='sudo' # questionable alias 
+alias tss='tailscale status'
+alias tip='tailscale ip'
+alias tup='sudo tailscale up'
+alias tdown='sudo tailscale down'
 
 backup() {
   cp "$1" "$1.bak"
+}
+
+vpn-on() {
+  if [-z "$1" ]; then
+    echo "vpn-on <exit-node-or-ip>"
+    return 1 
+  fi 
+  sudo tailscale set --exit-node="$1"
+}
+
+vpn-off() {
+  sudo tailscale set --exit-node= 
 }
 
 
