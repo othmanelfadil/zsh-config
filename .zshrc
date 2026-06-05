@@ -135,6 +135,13 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export GOPATH="${GOPATH:-$HOME/go}"
 export PATH="$HOME/.cargo/bin:$PATH"
 
+HISTSIZE=10000
+SAVEHIST=10000
+setopt HIST_IGNORE_DUPS 
+setopt HIST_IGNORE_SPACE 
+setopt SHARE_HISTORY
+setopt INC_APPEND_HISTORY
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
