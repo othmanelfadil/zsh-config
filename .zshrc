@@ -178,7 +178,7 @@ backup() {
 }
 
 vpn-on() {
-  if [-z "$1" ]; then
+  if [ -z "$1" ]; then
     echo "vpn-on <exit-node-or-ip>"
     return 1 
   fi 
