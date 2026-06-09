@@ -192,6 +192,6 @@ vpn-off() {
 
 zopen() {
   local file
-  file=$(find . -type f | fzf)
+  file=$(find "$HOME/Documents" -type f | fzf)
   [[ -n "$file" ]] && zathura "$file" >/dev/null 2>&1 &
 }
