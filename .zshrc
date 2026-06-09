@@ -193,5 +193,5 @@ vpn-off() {
 zopen() {
   local file
   file=$(find . -type f | fzf)
-  [[ -n "$file"]] && zathura "$file" >/dev/null 2>&1 &
+  [[ -n "$file" ]] && zathura "$file" >/dev/null 2>&1 &
 }
