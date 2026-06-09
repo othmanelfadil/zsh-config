@@ -189,4 +189,8 @@ vpn-off() {
   sudo tailscale set --exit-node= 
 }
 
-
+zo() {
+  local file
+  file=$(find . -type f | fzf)
+  [[ -n "$file"]] && zathura "$file"
+}
