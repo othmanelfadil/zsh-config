@@ -172,6 +172,7 @@ alias tup='sudo tailscale up'
 alias tdown='sudo tailscale down'
 alias ports='ss -tulanp'
 
+alias zo='zopen'
 
 backup() {
   cp "$1" "$1.bak"
@@ -189,8 +190,8 @@ vpn-off() {
   sudo tailscale set --exit-node= 
 }
 
-zo() {
+zopen() {
   local file
   file=$(find . -type f | fzf)
-  [[ -n "$file"]] && zathura "$file"
+  [[ -n "$file"]] && zathura "$file" >/dev/null 2>&1 &
 }
